@@ -31,6 +31,8 @@ class _LadderPageState extends State<LadderPage> implements LadderInterface {
   double top5 = 35;
   double left5 = 400;
 
+  double grayBoxX = 450;
+  double grayBoxY = 320;
 
 
   Map<String, int> stateEnum = {
@@ -114,6 +116,8 @@ class _LadderPageState extends State<LadderPage> implements LadderInterface {
               child: animatedBtn('5', 60, 30, const EdgeInsets.fromLTRB(20, 50, 0, 0), left5, top5, 0, 0, Colors.purpleAccent),
             ),
 
+            Container(width: grayBoxX, height: grayBoxY, color: Colors.grey, margin: const EdgeInsets.fromLTRB(20, 180, 0, 0),)
+
           ],
         ));
   }
@@ -127,6 +131,8 @@ class _LadderPageState extends State<LadderPage> implements LadderInterface {
 
     Timer.periodic(const Duration(milliseconds: 400), (timer) {
       setState(() {
+        grayBoxX = 0;
+        grayBoxY = 0;
         if (result[count] == stateEnum['B']) {
           //아래
           setNumber(index, 'top');
